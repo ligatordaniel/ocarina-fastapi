@@ -1,0 +1,36 @@
+server:
+  port: ${SERVER_PORT:8081}
+
+spring:
+  application:
+    name: ocarina-sprintboot
+  kafka:
+    bootstrap-servers: ${SPRING_KAFKA_BOOTSTRAP_SERVERS:localhost:9092}
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+    consumer:
+      group-id: ${SPRING_KAFKA_CONSUMER_GROUP:ocarina-workers}
+      auto-offset-reset: earliest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+      properties:
+        spring.json.trusted.packages: com.daniel.ocarina.*
+        spring.json.value.default.type: com.daniel.ocarina.kafka.DownloadRequestedEvent
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+
+ocarina:
+  downloads-dir: ${OCARINA_DOWNLOADS_DIR:./downloads}
+  yt-dlp-cookies-file: ${OCARINA_YTDLP_COOKIES_FILE:}
+  kafka:
+    requests-topic: ${OCARINA_KAFKA_REQUESTS_TOPIC:ocarina.download.requests}
+  cors:
+    allowed-origins: ${OCARINA_CORS_ALLOWED_ORIGINS:http://localhost:5173,http://localhost:8080}
+  auth:
+    enabled: ${OCARINA_AUTH_ENABLED:true}
+    validate-url: ${SHAULA_INTERNAL_VALIDATE_URL:http://shaula-sprintboot:8000/internal/validate}
