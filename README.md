@@ -1,6 +1,6 @@
-# ocarina-sprintboot
+# ocarina-fastapi
 
-Backend Java Spring Boot para recibir un link de YouTube y generar descarga `.mp4` o `.mp3`.
+Backend Python FastAPI para recibir un link de YouTube y generar descarga `.mp4` o `.mp3`.
 
 Uso esperado: solo contenido propio o con permiso.
 
@@ -24,7 +24,7 @@ Uso esperado: solo contenido propio o con permiso.
 ## Variables
 
 - `SERVER_PORT=8081`
-- `SPRING_KAFKA_BOOTSTRAP_SERVERS=localhost:9092`
+- `KAFKA_BOOTSTRAP_SERVERS=localhost:9092`
 - `OCARINA_DOWNLOADS_DIR=./downloads`
 - `OCARINA_YTDLP_COOKIES_FILE=` opcional. Si YouTube pide login/bot check, exporta cookies a `cookies.txt` y móntalo.
 - `OCARINA_CORS_ALLOWED_ORIGINS=http://localhost:5173,http://localhost:8080`
