@@ -1,9 +1,9 @@
-target/
-.idea/
-.vscode/
-*.iml
-downloads/
-.env
+# Python
+__pycache__/
+*.pyc
+*.pyo
+venv/
+.venv/
 
 # Secrets / local env
 .env
@@ -16,8 +16,7 @@ downloads/
 node_modules/
 dist/
 build/
-target/
-.gradle/
+*.egg-info/
 
 # Local runtime data
 storage/
@@ -32,4 +31,3 @@ downloads/
 .DS_Store
 .idea/
 .vscode/
-*.iml
