@@ -26,7 +26,8 @@ class YoutubeDownloader:
             "--no-playlist",
             "--restrict-filenames",
             "--newline",
-            "--js-runtimes", "node",
+            "--js-runtimes", "deno",
+            "--remote-components", "ejs:github",
             "-P", str(self.downloads_dir),
             "-o", f"{job_id}.%(ext)s",
         ]
